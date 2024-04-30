@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Neflix-clone",
+    "slug": "Neflix-clone",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/vector_logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#101010"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "",
+        "backgroundColor": "#00000"
+      }
+    },
+    "web": {
+      "favicon": ""
+    }
+  }
+}
