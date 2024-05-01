@@ -16,7 +16,7 @@ const MovieItem = React.memo(({ item }) => (
   </View>
 ));
 
-const MovieList = ({ title, fetchUrl }) => {
+const MovieList = ({ title, fetchUrl, horizontal, numColumns }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -48,16 +48,31 @@ const MovieList = ({ title, fetchUrl }) => {
 
   return (
     <View style={styles.container}>
-       <Text style={styles.sectionTitle}><Text>{title}</Text> <AntDesign name="right" size={20} color="white" /></Text>
+      {horizontal &&  <Text style={styles.sectionTitle}><Text>{title}</Text> <AntDesign name="right" size={20} color="white" /></Text>}
+      
 
-      <FlatList
-        data={movies}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.flatListContent}
-      />
+       {horizontal ? (
+        
+        <FlatList
+          data={movies}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.flatListContent}
+          initialNumToRender={10}
+        />
+      ) : (
+        <FlatList
+          data={movies}
+          numColumns={numColumns}
+          showsVerticalScrollIndicator={false}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle={styles.flatListContent}
+          initialNumToRender={10}
+        />
+      )}
     </View>
   );
 };
@@ -75,20 +90,20 @@ const styles = StyleSheet.create({
     margin:15,
   },
   flatListContent: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 5,
   },
   itemContainer: {
     marginBottom: 20,
   },
   movieImage: {
-    width: 120,
-    height: 180,
+    width: 110,
+    height: 160,
     resizeMode: "cover",
     borderRadius: 5,
-    marginRight:10,
+    marginRight:5,
   },
   title: {
-    width:140,
+    width:120,
     fontSize: 13,
     fontWeight: "bold",
     marginTop: 10,

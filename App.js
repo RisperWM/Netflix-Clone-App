@@ -26,7 +26,7 @@ const App = () => {
           component={TvShowsList}
           options={{
             headerShown: true,
-            headerStyle: { backgroundColor: "black" },
+            headerStyle: { backgroundColor: "red" },
             headerTintColor: "white",
             headerTitleStyle: { fontWeight: "bold" },
             title: "TV Shows",
