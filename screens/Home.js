@@ -13,18 +13,22 @@ const Home = () => {
         <MovieList
           title="Now Playing"
           fetchUrl="https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1"
+          horizontal={true}
           />
         <MovieList
           title="Popular Shows"
           fetchUrl="https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
+          horizontal={true}
         />
          <MovieList
           title="Top Rated Shows"
           fetchUrl="https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
+          horizontal={true}
         />
          <MovieList
         title="New & Upcoming Shows"
         fetchUrl="https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
+        horizontal={true}
         />
       </View>
     </ScrollView>
