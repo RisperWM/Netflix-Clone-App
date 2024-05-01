@@ -16,7 +16,7 @@ const MovieItem = React.memo(({ item }) => (
   </View>
 ));
 
-const PopularShows = () => {
+const MovieList = ({ title, fetchUrl }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,6 @@ const PopularShows = () => {
   }, []);
 
   function getMovies() {
-    const url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
     const options = {
       method: "GET",
       headers: {
@@ -33,7 +32,7 @@ const PopularShows = () => {
       },
     };
 
-    fetch(url, options)
+    fetch(fetchUrl, options)
       .then((response) => response.json())
       .then((data) => {
         setMovies(data.results);
@@ -49,7 +48,8 @@ const PopularShows = () => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.sectionTitle}>Popular Shows  <AntDesign name="right" size={20} color="white" /></Text>
+       <Text style={styles.sectionTitle}><Text>{title}</Text> <AntDesign name="right" size={20} color="white" /></Text>
+
       <FlatList
         data={movies}
         horizontal
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PopularShows;
+export default MovieList;

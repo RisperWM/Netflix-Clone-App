@@ -4,7 +4,7 @@
     "slug": "Neflix-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/vector_logo.png",
+    "icon": "./assets/netflix-seeklogo.svg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/logo.png",

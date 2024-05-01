@@ -14,6 +14,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+
 
 const { height } = Dimensions.get("window");
 const data = [
@@ -26,7 +28,19 @@ const data = [
   { id: 7, image: require("../../assets/prevImage7.jpeg") },
 ];
 
+
 const Hero = () => {
+  const navigation = useNavigation();
+
+  const handleTvShows =()=>{
+    navigation.navigate('TvShowList')
+  }
+  const handleMovies =()=>{
+    navigation.navigate('MovieList')
+  }
+  const handleMyList =()=>{
+    navigation.navigate('MyList')
+  }
   const renderItem = ({ item }) => (
     <Image source={item.image} style={styles.prevImage} />
   );
@@ -43,16 +57,16 @@ const Hero = () => {
           >
             <View style={styles.navlinks}>
               <Image
-                source={require("../../assets/vector_logo.png")}
+                source={require("../../assets/netflix-seeklogo.svg")}
                 style={styles.logoImage}
               />
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleTvShows}>
                 <Text style={styles.text}>TV Shows</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleMovies}>
                 <Text style={styles.text}>Movies</Text>
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={handleMyList}>
                 <Text style={styles.text}>My List</Text>
               </TouchableOpacity>
             </View>
