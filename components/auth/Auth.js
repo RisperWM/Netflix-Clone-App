@@ -11,7 +11,7 @@ import AuthForm from "./AuthForm";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
-const Auth = ({ isLogin = false }) => {
+const Auth = ({ isLogin = false, onAuthenticate={onAuthenticate} }) => {
   const navigation = useNavigation();
 
   const [isChecked, setIsChecked] = useState(false);
@@ -67,8 +67,9 @@ const Auth = ({ isLogin = false }) => {
       console.log("Form is valid");
       onAuthenticate({ email, password });
       // Proceed with navigation or other actions
-      navigation.navigate('BottonNavigation')
+      navigation.navigate('BottomNavigation')
     } else {
+      navigation.navigate('BottomNavigation')
       console.log("Form validation failed");
     }
   };
