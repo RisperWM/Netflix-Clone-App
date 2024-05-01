@@ -3,17 +3,17 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   Dimensions,
   ImageBackground,
   TouchableOpacity,
   FlatList,
+  ScrollView,
 } from "react-native";
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const { height } = Dimensions.get("window");
 const data = [
@@ -26,15 +26,14 @@ const data = [
   { id: 7, image: require("../../assets/prevImage7.jpeg") },
 ];
 
-
 const Hero = () => {
-
   const renderItem = ({ item }) => (
     <Image source={item.image} style={styles.prevImage} />
   );
   return (
-        <View style={styles.container}>
-          <ImageBackground
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <ImageBackground
           source={require("../../assets/hero-image.jpg")}
           style={[styles.subContainer, { height: (7 / 12) * height }]}
         >
@@ -87,15 +86,17 @@ const Hero = () => {
             contentContainerStyle={styles.previewImages}
           />
         </View>
-        </View>
-     
+        </ScrollView>
+       
+      
+    </SafeAreaView>
   );
 };
 
 export default Hero;
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
   },
   subContainer: {
@@ -153,21 +154,21 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingLeft: 7,
   },
-  preview:{
-    backgroundColor:"black",
-    padding:10,
+  preview: {
+    backgroundColor: "black",
+    padding: 10,
   },
-  previewText:{
+  previewText: {
     fontWeight: "600",
     fontSize: 25,
-    color:"white",
-    marginBottom:10,
-    marginTop:10,
+    color: "white",
+    marginBottom: 10,
+    marginTop: 10,
   },
-  prevImage:{
-    borderRadius:50,
-    width:120,
-    height:120,
-    margin:8,
+  prevImage: {
+    borderRadius: 50,
+    width: 120,
+    height: 120,
+    margin: 8,
   },
 });
